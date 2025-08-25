@@ -1,0 +1,53 @@
+import 'package:flutter/material.dart';
+import 'package:tele_crm/screens/lead_details.dart';
+import 'package:tele_crm/screens/leads.dart';
+import 'package:tele_crm/screens/login.dart';
+
+void main() => runApp(const TeleCrmApp());
+
+class TeleCrmApp extends StatelessWidget {
+  const TeleCrmApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final light = ThemeData.from(
+      colorScheme: const ColorScheme.light(
+        primary: Color(0xFF1967D2),
+        secondary: Color(0xFF00BFA6),
+        surface: Colors.white,
+        onSurface: Color(0xFF1F242B),
+      ),
+      useMaterial3: true,
+    ).copyWith(
+      textTheme: Typography.blackCupertino,
+    );
+
+    final dark = ThemeData.from(
+      colorScheme: const ColorScheme.dark(
+        primary: Color(0xFF8AB4F8),
+        secondary: Color(0xFF64FFDA),
+      ),
+      useMaterial3: true,
+    );
+
+    return MaterialApp(
+      title: 'TeleCRM',
+      themeMode: ThemeMode.system,
+      theme: light,
+      darkTheme: dark,
+      initialRoute: LoginScreen.route,
+      routes: {
+        LoginScreen.route: (_) => const LoginScreen(),
+        LeadsScreen.route: (_) => const LeadsScreen(),
+        LeadDetailsScreen.route: (_) => const LeadDetailsScreen(
+          leadId: 'LD-0001',
+          name: 'Jane Cooper',
+          phone: '+91-564646454',
+          status: 'Fresh',
+        ),
+      },
+    );
+
+  }
+}
+
