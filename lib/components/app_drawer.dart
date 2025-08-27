@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:tele_crm/screens/dashboard.dart';
+import 'package:tele_crm/screens/donation_form.dart';
 import 'package:tele_crm/screens/follow_ups.dart';
 import 'package:tele_crm/screens/leads.dart';
+import 'package:tele_crm/screens/message_template.dart';
 
 class AppDrawer extends StatelessWidget {
   const AppDrawer({super.key});
@@ -126,7 +128,7 @@ class AppDrawer extends StatelessWidget {
                   title: const Text('Message Templates',
                       style: TextStyle(
                           color: Colors.black, fontWeight: FontWeight.w600)),
-                  onTap: () => _go(context, DashboardScreen.route),
+                  onTap: () => _go(context, MessageTemplatesScreen.route),
                 ),
 
                 // Donation Form
@@ -136,7 +138,7 @@ class AppDrawer extends StatelessWidget {
                   title: const Text('Donation Form',
                       style: TextStyle(
                           color: Colors.black, fontWeight: FontWeight.w600)),
-                  onTap: () => _go(context, DashboardScreen.route),
+                  onTap: () => _go(context, DonationFormPage.route),
                 ),
 
                 // Prasadam Form
