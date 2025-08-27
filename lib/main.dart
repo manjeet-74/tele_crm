@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:tele_crm/screens/dashboard.dart';
+import 'package:tele_crm/screens/follow_ups.dart';
 import 'package:tele_crm/screens/lead_details.dart';
 import 'package:tele_crm/screens/leads.dart';
 import 'package:tele_crm/screens/login.dart';
@@ -38,7 +40,9 @@ class TeleCrmApp extends StatelessWidget {
       initialRoute: LoginScreen.route,
       routes: {
         LoginScreen.route: (_) => const LoginScreen(),
+        FollowUpsScreen.route: (_) => const FollowUpsScreen(),
         LeadsScreen.route: (_) => const LeadsScreen(),
+        DashboardScreen.route: (_) => const DashboardScreen(),
         LeadDetailsScreen.route: (_) => const LeadDetailsScreen(
           leadId: 'LD-0001',
           name: 'Jane Cooper',

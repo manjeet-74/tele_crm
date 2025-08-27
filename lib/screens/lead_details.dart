@@ -30,7 +30,6 @@ class LeadDetailsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final scheme = Theme.of(context).colorScheme;
 
     // Mock details; wire to real data later
     final details = {
@@ -48,13 +47,21 @@ class LeadDetailsScreen extends StatelessWidget {
       backgroundColor: Colors.white,
       appBar: AppBar(
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios_new_rounded),
+          icon: const Icon(Icons.arrow_back),
           onPressed: () => Navigator.maybePop(context),
         ),
         title: const Text('All Leads'),
         centerTitle: true,
         actions: [
-          IconButton(
+          IconButton.filled(
+            style: IconButton.styleFrom(
+                backgroundColor: Colors.grey.shade300,
+                foregroundColor: Colors.black87,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                padding: EdgeInsets.all(10)
+            ),
             onPressed: () {},
             icon: Stack(
               clipBehavior: Clip.none,
@@ -329,7 +336,7 @@ class _LeadInfoCard extends StatelessWidget {
   }
 
   Widget _kv(IconData? icon, String label, String value,
-      {bool indentText = false, bool hintStyle = false}) {
+      { bool hintStyle = false}) {
     const labelStyle = TextStyle(
       color: Colors.grey,
       fontSize: 14,

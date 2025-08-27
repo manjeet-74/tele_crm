@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tele_crm/screens/leads.dart';
+import 'package:tele_crm/screens/dashboard.dart';
 
 class LoginScreen extends StatefulWidget {
   static const route = '/login';
@@ -29,13 +29,13 @@ class _LoginScreenState extends State<LoginScreen> {
     await Future.delayed(const Duration(milliseconds: 600)); // mock
     setState(() => _loading = false);
     if (!mounted) return;
-    Navigator.pushReplacementNamed(context, LeadsScreen.route);
+    Navigator.pushReplacementNamed(context, DashboardScreen.route);
   }
 
   @override
   Widget build(BuildContext context) {
-    final panelBlue = const Color(0xFFD9F1FF); // light blue panel
-    final pageBg = Colors.white;
+    const panelBlue = Color(0xFFD9F1FF); // light blue panel
+    const pageBg = Colors.white;
 
     return Scaffold(
       backgroundColor: pageBg,

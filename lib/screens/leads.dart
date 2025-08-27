@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:tele_crm/components/app_drawer.dart';
+import 'package:tele_crm/components/notification_bell.dart';
 import 'package:tele_crm/screens/lead_details.dart';
 
 class LeadsScreen extends StatefulWidget {
@@ -29,12 +31,11 @@ class _LeadsScreenState extends State<LeadsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final scheme = Theme.of(context).colorScheme;
     const borderBlue = Color(0xFFBFE9FF); // light stroke like screenshot
     const chipBlue = const Color(0xFFD9F1FF); // pill bg
 
     return Scaffold(
-      drawer: const _DummyDrawer(),
+      drawer: const AppDrawer(),
       appBar: AppBar(
         leading: Builder(
           builder: (context) => IconButton(
@@ -45,35 +46,14 @@ class _LeadsScreenState extends State<LeadsScreen> {
         title: const Text('Lead & Filter'),
         centerTitle: true,
         actions: [
-          IconButton.filled(
-            style: IconButton.styleFrom(
-              backgroundColor: Colors.grey.shade300,
-              foregroundColor: Colors.black87,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(12),
-              ),
-              padding: EdgeInsets.all(10)
-            ),
+          NotificationBell(
             onPressed: () {},
-            icon: Stack(
-              clipBehavior: Clip.none,
-              children: [
-                const Icon(Icons.notifications_none_rounded),
-                Positioned(
-                  right: -1,
-                  top: -1,
-                  child: Container(
-                    width: 10,
-                    height: 10,
-                    decoration: const BoxDecoration(
-                      color: Colors.pinkAccent,
-                      shape: BoxShape.circle,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
+            showBadge: false,
+            backgroundColor: Colors.grey.shade300,
+            foregroundColor: Colors.black87,
+            size: 22,
+          )
+          ,
           const SizedBox(width: 8),
         ],
       ),
@@ -230,18 +210,3 @@ class _LeadsScreenState extends State<LeadsScreen> {
   }
 }
 
-class _DummyDrawer extends StatelessWidget {
-  const _DummyDrawer();
-
-  @override
-  Widget build(BuildContext context) {
-    return const Drawer(
-      child: SafeArea(
-        child: Padding(
-          padding: EdgeInsets.all(16),
-          child: Text('Menu'),
-        ),
-      ),
-    );
-  }
-}
