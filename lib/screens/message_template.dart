@@ -1,6 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:tele_crm/components/app_drawer.dart';
 import 'package:tele_crm/components/notification_bell.dart';
+import 'package:tele_crm/screens/message_details.dart';
 
 class MessageTemplatesScreen extends StatefulWidget {
   static const route = '/message_template';
@@ -82,7 +84,7 @@ class _MessageTemplatesScreenState extends State<MessageTemplatesScreen>
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Icon(Icons.whatshot), // WhatsApp icon
+                          Icon(CupertinoIcons.chat_bubble_text), // WhatsApp icon
                           SizedBox(width: 8),
                           Text('WhatsApp'),
                         ],
@@ -194,11 +196,18 @@ class SliverListSection extends StatelessWidget {
                 endIndent: 16,
                 color: Color(0xFFDFE6EA),
               ),
-            ListTile(
-              title: Text(items[index], maxLines: 1, overflow: TextOverflow.ellipsis),
-              trailing: const Icon(Icons.arrow_forward_rounded),
-              contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-              titleAlignment: ListTileTitleAlignment.center,
+            InkWell(
+              borderRadius: BorderRadius.circular(16),
+              onTap: () => Navigator.pushNamed(
+                context,
+                MessageDetailsPage.route,
+              ),
+              child: ListTile(
+                title: Text(items[index], maxLines: 1, overflow: TextOverflow.ellipsis),
+                trailing: const Icon(Icons.arrow_forward_rounded),
+                contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+                titleAlignment: ListTileTitleAlignment.center,
+              ),
             ),
           ],
         );

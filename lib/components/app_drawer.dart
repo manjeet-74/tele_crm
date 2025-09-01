@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:tele_crm/screens/android_permission.dart';
+import 'package:tele_crm/screens/call_report.dart';
+import 'package:tele_crm/screens/campaign.dart';
 import 'package:tele_crm/screens/dashboard.dart';
-import 'package:tele_crm/screens/donation_form.dart';
+import 'package:tele_crm/screens/forms/donation_form.dart';
 import 'package:tele_crm/screens/follow_ups.dart';
+import 'package:tele_crm/screens/forms/prasadam_form.dart';
 import 'package:tele_crm/screens/leads.dart';
 import 'package:tele_crm/screens/message_template.dart';
+import 'package:tele_crm/screens/sim_card_manager.dart';
 
 class AppDrawer extends StatelessWidget {
   const AppDrawer({super.key});
@@ -108,7 +113,7 @@ class AppDrawer extends StatelessWidget {
                   title: const Text('Campaign',
                       style: TextStyle(
                           color: Colors.black, fontWeight: FontWeight.w600)),
-                  onTap: () => _go(context, DashboardScreen.route),
+                  onTap: () => _go(context, CampaignScreen.route),
                 ),
 
                 // Call Tracking
@@ -119,6 +124,15 @@ class AppDrawer extends StatelessWidget {
                       style: TextStyle(
                           color: Colors.black, fontWeight: FontWeight.w600)),
                   onTap: () => _go(context, DashboardScreen.route),
+                ),
+
+                ListTile(
+                  leading:
+                  const Icon(Icons.phone_forwarded_rounded, color: Colors.black),
+                  title: const Text('Call Report',
+                      style: TextStyle(
+                          color: Colors.black, fontWeight: FontWeight.w600)),
+                  onTap: () => _go(context, CallReportPage.route),
                 ),
 
                 // Message Templates
@@ -148,7 +162,7 @@ class AppDrawer extends StatelessWidget {
                   title: const Text('Prasadam Form',
                       style: TextStyle(
                           color: Colors.black, fontWeight: FontWeight.w600)),
-                  onTap: () => _go(context, DashboardScreen.route),
+                  onTap: () => _go(context, PrasadamFormPage.route),
                 ),
 
                 const SizedBox(height: 20),
@@ -176,6 +190,16 @@ class AppDrawer extends StatelessWidget {
                       title: const Text('App Settings'),
                       dense: true,
                       onTap: () => _go(context, DashboardScreen.route),
+                    ),
+                    ListTile(
+                      title: const Text('Sim Card Manager'),
+                      dense: true,
+                      onTap: () => _go(context, SimCardManagerPage.route),
+                    ),
+                    ListTile(
+                      title: const Text('Android Permissions'),
+                      dense: true,
+                      onTap: () => _go(context, AndroidPermissionsPage.route),
                     ),
                   ],
                 ),

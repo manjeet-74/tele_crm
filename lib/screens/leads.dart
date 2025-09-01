@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tele_crm/components/app_drawer.dart';
+import 'package:tele_crm/components/create_filter_card.dart';
 import 'package:tele_crm/components/notification_bell.dart';
 import 'package:tele_crm/screens/lead_details.dart';
 
@@ -71,19 +72,7 @@ class _LeadsScreenState extends State<LeadsScreen> {
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
                   ),
                 ),
-                FilledButton.tonal(
-                  style: FilledButton.styleFrom(
-                    backgroundColor: chipBlue, // light blue button bg
-                    foregroundColor: Colors.black87,
-                    padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    elevation: 0,
-                  ),
-                  onPressed: () {},
-                  child: const Text('+ Create Filter'),
-                ),
+                CreateFilterCard(),
               ],
             ),
           ),
@@ -208,5 +197,6 @@ class _LeadsScreenState extends State<LeadsScreen> {
       ),
     );
   }
+
 }
 
